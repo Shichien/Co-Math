@@ -62,6 +62,51 @@
 
 % ————————————————————————————————————————————————————————
 
+% 导言区
+% Colour Palette ——————————————————————————————————————
+\definecolor{merah}{HTML}{F4564E}
+\definecolor{merahtua}{HTML}{89313E}
+\definecolor{biru}{HTML}{60BBE5}
+\definecolor{birutua}{HTML}{412F66}
+\definecolor{hijau}{HTML}{59CC78}
+\definecolor{hijautua}{HTML}{366D5B}
+\definecolor{kuning}{HTML}{FFD56B}
+\definecolor{jingga}{HTML}{FBA15F}
+\definecolor{ungu}{HTML}{8C5FBF}
+\definecolor{lavender}{HTML}{CBA5E8}
+\definecolor{merjamb}{HTML}{FFB6E0}
+\definecolor{mygray}{HTML}{E6E6E6}
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{mymauve}{rgb}{0.58,0,0.82}
+
+\lstset {
+    backgroundcolor=\color{white},   % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}
+    basicstyle=\footnotesize,        % the size of the fonts that are used for the code
+    breakatwhitespace=false,         % sets if automatic breaks should only happen at whitespace
+    breaklines=true,                 % sets automatic line breaking
+    captionpos=bl,                   % sets the caption-position to bottom
+    commentstyle=\color{mygreen},    % comment style
+    deletekeywords={...},            % if you want to delete keywords from the given language
+    escapeinside={\%*}{*},           % if you want to add LaTeX within your code
+    extendedchars=true,              % lets you use non-ASCII characters; for 8-bits encodings only, does not work with UTF-8
+    frame=single,                    % adds a frame around the code
+    keepspaces=true,                 % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
+    keywordstyle=\color{blue},       % keyword style
+    % language=Python,               % the language of the code
+    morekeywords={*,...},            % if you want to add more keywords to the set
+    numbers=left,                    % where to put the line-numbers; possible values are (none, left, right)
+    numbersep=5pt,                   % how far the line-numbers are from the code
+    numberstyle=\tiny\color{mygray}, % the style that is used for the line-numbers
+    rulecolor=\color{black},         % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. comments (green here))
+    showspaces=false,                % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
+    showstringspaces=false,          % underline spaces within strings only
+    showtabs=false,                  % show tabs within strings adding particular underscores
+    stepnumber=1,                    % the step between two line-numbers. If it's 1, each line will be numbered
+    stringstyle=\color{orange},      % string literal style
+    tabsize=2,                       % sets default tabsize to 2 spaces
+    % title=Python Code              % show the filename of files included with \lstinputlisting; also try caption instead of title
+}
+
 \title{LateX 入门}
 
 \begin{document}
@@ -86,33 +131,15 @@
 
 \begin{figure} [H]
     \centering % 图片居中的命令
-    \includegraphics[width=0.5\textwidth]{../assets/img/1.png} % 可以自己调一下 width 的值试试
+    \includegraphics[width=0.35\textwidth]{../assets/img/1.png} % 可以自己调一下 width 的值试试
     \caption{示例图片标题}
     \label{fig:my_label} % 设置标签，以便后续引用
 \end{figure}
 
 要注意一下怎么对路径进行引用。像这个项目里，结构如下：
 
-\begin{lstlisting}
-    project/
-    │
-    ├── assets/
-    │   ├── examples/
-    │   └── img/
-    │       └── 1.png
-    │
-    ├── report/
-    │   ├── begin.aux
-    │   ├── begin.bcf
-    │   ├── begin.log
-    │   ├── begin.pdf
-    │   ├── begin.run.xml
-    │   ├── begin.synctex.gz
-    │   └── begin.tex
-    │
-    └── src/
-        └── question1.py    
-\end{lstlisting}
+% 
+
 
 tex 文件是你编辑的文件，要找到你的图片，向上返回一层后，到 report，再向上返回一层，到 project 的根目录，然后进入 assets，再进入 img，然后找到了 1.png，所以要用 ../assets/img/1.png
 
@@ -120,6 +147,175 @@ tex 文件是你编辑的文件，要找到你的图片，向上返回一层后�
 
 \subsection{子标题}
 
+写点东西，再写点东西，再写点。
+
 \subsubsection{子子标题}
+
+\section{表格}
+
+% 三线表
+如表格 \ref{tab:my_label} 所示
+
+\begin{table} [H]
+    \centering
+    \begin{tabular}{cccc} % columns 的数量要和下面的数据对应
+        \toprule
+        A & B & C & D \\
+        1 & 2 & 3     \\
+        \midrule
+        4 & 5 & 6     \\
+        7 & 8 & 9     \\
+        \bottomrule
+    \end{tabular}
+    \caption{示例表格}
+    \label{tab:my_label}
+\end{table}
+
+如表格 \ref{tab:my_label_2} 所示.
+
+\begin{table} [H]
+    \centering
+    \begin{tabular}{cccc} % columns 的数量要和下面的数据对应
+        \toprule
+        A & B & C & D \\
+        1 & 2 & 3     \\
+        \midrule
+        4 & 5 & 6     \\
+        7 & 8 & 9     \\
+        \bottomrule
+    \end{tabular}
+    \caption{示例表格 2}
+    \label{tab:my_label_2}
+\end{table}
+
+\subsection{子图包}
+
+\begin{figure} [H]
+    \centering
+    \begin{subfigure}{0.45\textwidth}
+        \centering
+        \includegraphics[width=0.9\textwidth]{../assets/img/1.png}
+        \caption{子图 1}
+        \label{fig:subfig1}
+    \end{subfigure}
+
+    \
+
+    \begin{subfigure}{0.45\textwidth}
+        \centering
+        \includegraphics[width=0.9\textwidth]{../assets/img/1.png}
+        \caption{子图 2}
+        \label{fig:subfig2}
+    \end{subfigure}
+    \caption{示例子图}
+    \label{fig:subfig}
+\end{figure}
+
+6666
+
+\vspace{1cm}
+
+7777
+
+\newpage % \newpage{5} 表示分页，数字表示分页的数量
+
+\subsection{分页}
+
+% \newpage
+
+8888
+
+\subsection{分栏}
+
+\begin{multicols}{2} % 开始两栏排版
+    \section{基础介绍}
+    \subsection{分栏优势}
+    分栏排版常见于学术期刊和会议论文集，具有以下优点：
+
+    % 无序列表
+    \begin{itemize}
+        \item 提高页面利用率
+        \item 增强可读性
+        \item 方便图表与文字对照
+        \item 适应不同阅读场景
+    \end{itemize}
+
+    % 有序列表
+    \begin{enumerate}
+        \item 提高页面 $ x^2 + y^2 = z^2 $ 利用率
+        \item 增强可读性
+        \item 方便图表与文字对照
+        \item 适应不同阅读场景
+    \end{enumerate}
+
+    \subsection{数学公式示例}
+    洛伦兹方程：
+    \begin{equation}
+        \begin{cases}
+            \frac{dx}{dt} = \sigma(y - x)   \\
+            \frac{dy}{dt} = x(\rho - z) - y \\
+            \frac{dz}{dt} = xy - \beta z
+        \end{cases}
+    \end{equation}
+
+    麦克斯韦方程组：
+    $$
+        \begin{aligned}
+            \nabla \cdot \mathbf{E}  & = \frac{\rho}{\varepsilon_0}                                                          \\
+            \nabla \cdot \mathbf{B}  & = 0                                                                                   \\
+            \nabla \times \mathbf{E} & = -\frac{\partial \mathbf{B}}{\partial t}                                             \\
+            \nabla \times \mathbf{B} & = \mu_0\left(\mathbf{J} + \varepsilon_0 \frac{\partial \mathbf{E}}{\partial t}\right)
+        \end{aligned}
+    $$
+
+    \section{详细内容}
+    \lipsum[1-2] % 生成两段虚拟文本
+
+    \subsection{图片示例}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.9\linewidth]{example-image-a}
+        \caption{第一栏中的示例图片}
+    \end{figure}
+
+    \columnbreak % 手动分栏
+
+    \section{第二栏内容}
+    \subsection{定理环境}
+    \begin{verbatim}
+    \begin{theorem}
+    任意大于2的偶数可以表示为两个素数之和
+    \end{theorem}
+    \end{verbatim}
+
+    \subsection{代码示例}
+    \begin{verbatim}
+    def fibonacci(n):
+        a, b = 0, 1
+        for _ in range(n):
+            yield a
+            a, b = b, a + b
+    \end{verbatim}
+
+    \subsection{颜色文本}
+    {\color{red}红色文本}、{\color{blue}蓝色文本}和{\color{green}绿色文本}示例
+
+    \subsection{引用文献}
+    以下是文献引用示例：
+    \begin{enumerate}
+        \item 文献 \cite{key1}
+        \item 文献\cite{key2}
+        \item 文献\cite{key3}
+    \end{enumerate}
+
+    \lipsum[3-5] % 生成更多虚拟文本
+
+\end{multicols}
+
+\section{代码块}
+
+\begin{lstlisting}
+666
+\end{lstlisting}
 
 \end{document}
